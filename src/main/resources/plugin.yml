@@ -1,0 +1,5 @@
+main: asherbig.testPlugin.main.Test
+name: TestPlugin
+version: 1.11.1
+author: asherbig
+description: first plugin
