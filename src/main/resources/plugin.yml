@@ -1,5 +1,9 @@
-main: asherbig.testPlugin.main.Test
 name: TestPlugin
+main: asherbig.testPlugin.main.Test
 version: 1.11.1
 author: asherbig
 description: first plugin
+commands:
+ hello:
+  description: Greets the player, gives a jump boost
+  usage: /<command>
