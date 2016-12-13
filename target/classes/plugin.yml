@@ -4,15 +4,18 @@ version: 2
 author: asherbig
 description: first plugin
 commands:
- hello:
-  description: Greets the player, gives a jump boost
-  usage: /<command>
- edit:
-  description: Edits the config file
-  usage: /edit <new_message>
- heal:
-  description: Heals the player to full health
-  usage: /heal
- feed:
-  description: Fills the hunger bar to full
-  usage: /feed
+    hello:
+        description: Greets the player, gives a jump boost
+        usage: /<command>
+    edit:
+        description: Edits the config file
+        usage: /edit <new_message>
+    heal:
+        description: Heals the player to full health
+        usage: /heal
+    feed:
+        description: Fills the hunger bar to full
+        usage: /feed
+    godmode:
+        description: toggles god mode on and off
+        usage: /godmode

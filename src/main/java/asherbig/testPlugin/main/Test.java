@@ -1,6 +1,9 @@
 package asherbig.testPlugin.main;
 
 import org.bukkit.ChatColor;
+import java.util.HashSet;
+import java.util.UUID;
+
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
@@ -9,6 +12,8 @@ import org.bukkit.potion.PotionEffect;
 import org.bukkit.potion.PotionEffectType;
 
 public class Test extends JavaPlugin{
+	
+	protected static HashSet<UUID> gods = new HashSet<UUID>();
 	
 	@Override
 	public void onEnable() {
@@ -67,6 +72,22 @@ public class Test extends JavaPlugin{
 				sender.sendMessage("You do not need feeding, you aren't a person!");
 				return false;
 			}
+		}
+		
+		if (cmd.getName().equalsIgnoreCase("godmode")) {
+			if (!(sender instanceof Player)) {
+				sender.sendMessage("Only players can enter god mode");
+				return true;
+			}
+			Player player = (Player) sender;
+			if (gods.contains(player.getUniqueId())) {
+				gods.remove(player.getUniqueId());
+				player.sendMessage(ChatColor.GOLD + "God mode disabled!");
+			} else {
+				gods.add(player.getUniqueId());
+				player.sendMessage(ChatColor.GOLD + "God mode enabled!");
+			}
+			return true;
 		}
 		return false;
 	}
