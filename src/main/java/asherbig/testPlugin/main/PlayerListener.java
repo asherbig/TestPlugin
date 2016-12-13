@@ -15,16 +15,21 @@ import org.bukkit.event.player.PlayerToggleSneakEvent;
 import org.bukkit.inventory.ItemStack;
 
 public class PlayerListener implements Listener{
+	
+	private Test plugin;
 
 	public PlayerListener(Test plugin) {
+		this.plugin = plugin;
 		plugin.getServer().getPluginManager().registerEvents(this, plugin);
 	}
 	
+	//sends a message to the player if they are sneaking
 	@EventHandler
 	public void onSneak(PlayerToggleSneakEvent e) {
 		Player player = e.getPlayer();
-		player.sendMessage("No sneaking");
-		e.setCancelled(true);
+		if (!player.isSneaking()) {
+			player.sendMessage(plugin.getConfig().getString("message"));
+		}
 	}
 	
 	@EventHandler
