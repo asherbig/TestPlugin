@@ -1,6 +1,8 @@
 package asherbig.testPlugin.main;
 
 import org.bukkit.ChatColor;
+import org.bukkit.GameMode;
+
 import java.util.HashSet;
 import java.util.UUID;
 
@@ -88,6 +90,21 @@ public class Test extends JavaPlugin{
 				player.sendMessage(ChatColor.GOLD + "God mode enabled!");
 			}
 			return true;
+		}
+		
+		if (cmd.getName().equalsIgnoreCase("gm")) {
+			if (!(sender instanceof Player)) {
+				sender.sendMessage(ChatColor.RED + "Only players can change gamemode!");
+				return true;
+			}
+			Player player = (Player) sender;
+			if (player.getGameMode() == GameMode.SURVIVAL) {
+				player.sendMessage(ChatColor.GOLD + "Switched to creative mode");
+				player.setGameMode(GameMode.CREATIVE);
+			} else {
+				player.sendMessage(ChatColor.GOLD + "Switched to survival mode");
+				player.setGameMode(GameMode.SURVIVAL);
+			}
 		}
 		return false;
 	}

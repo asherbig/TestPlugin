@@ -1,1 +1,4 @@
 message: 'Test plugin is operating on your server!'
+
+#Set the following to FALSE if you want explosions to not do block damage
+Block Damage from Explosions: FALSE

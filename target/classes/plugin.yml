@@ -19,3 +19,6 @@ commands:
     godmode:
         description: toggles god mode on and off
         usage: /godmode
+    gm:
+        desciption: toggles the game mode of the player
+        usage: /gm
